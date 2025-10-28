@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "DM Sans", sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: rgb(22, 22, 22);
+}
+
+@mixin flex-column ($gap: 0) {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+}
+
+
+
+
+main {
+    @include flex-column(1rem);
+    padding: 1rem;
+
+    section.view1 {
+        @include flex-column(1rem);
+
+
+
+        .top {
+            width: 100%;
+
+            img {
+                width: 100%;
+                border-radius: 1rem;
+            }
+        }
+
+        .bottom {
+            color: white;
+            background-color: rgb(37, 37, 37);
+            @include flex-column(2rem);
+            padding: 1rem;
+            border-radius: 1rem;
+            font-size: 1.3rem;
+
+
+
+            .text {
+                @include flex-column(0.8rem);
+
+                p {
+                    font-weight: 200;
+                    opacity: 0.5;
+                    line-height: 30px;
+
+                }
+
+                h1 {
+                    font-weight: 200;
+                }
+
+                button {
+                    width: fit-content;
+                    padding: 0.3rem;
+                    border-radius: 0.5rem;
+                    border: none;
+                    outline: none;
+                }
+
+            }
+        }
+
+    }
+
+    section.view2 {
+        color: white;
+        @include flex-column(2rem);
+        font-size: 1.5rem;
+        font-weight: 300;
+
+        .top,
+        .bottom {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+
+        small {
+            font-size: 0.7em;
+        }
+
+        h2 {
+            font-weight: 300;
+        }
+    }
+
+    section.view3 {
+        @include flex-column(1rem);
+
+        .top {
+            img {
+                width: 100%;
+                border-radius: 1rem;
+            }
+        }
+
+        .bottom>p {
+            font-size: 1rem;
+        }
+
+        .bottom {
+            color: white;
+            background-color: rgb(37, 37, 37);
+            @include flex-column(2rem);
+            padding: 1rem;
+            border-radius: 1rem;
+            font-size: 1.3rem;
+
+
+
+            .text {
+
+                h1 {
+                    font-weight: 200;
+                }
+
+                .para {
+                    font-weight: 200;
+                    opacity: 0.5;
+                    line-height: 30px;
+                }
+            }
+
+
+
+        }
+    }
+
+    section.view4 {
+        @include flex-column(1rem);
+        color: white;
+        width: 100%;
+        
+        .card:nth-child(2){
+            background-image: url(./card2.webp);
+        }
+        .card:nth-child(3){
+            background-image: url(./card3.webp);
+        }
+
+        .card {
+            background-image: url(./card1.webp);
+            aspect-ratio: 1/1;
+            background-size: cover;
+            @include flex-column(0rem);
+            justify-content: space-between;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 0.7rem;
+
+            .icon,.bottom{
+                background-color: rgba(131, 131, 131, 0.578);
+                backdrop-filter: blur(5px);
+                // border: 0.05px solid white;
+            }
+
+            .top {
+                display: flex;
+                justify-content: flex-end;
+                gap: 1rem;
+
+                .icon{
+                    border-radius: 50px;
+                    width: fit-content;
+                    padding: 0.5rem;
+                    font-weight: 200;
+                }
+            }
+
+            .bottom{
+                display: flex;
+                justify-content: space-between;
+                padding: 1rem;
+                border-radius: 0.7rem;
+                font-weight: 300;
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+}
+
+@media (min-width:600px) {
+    main {
+
+
+        section.view1 {
+            flex-direction: row;
+
+            .top,
+            .bottom {
+                width: 50%;
+            }
+
+            .bottom {
+                justify-content: space-between;
+                padding: 3rem;
+            }
+        }
+
+        section.view2 {
+            flex-direction: row;
+
+            .top,
+            .bottom {
+                justify-content: space-around;
+            }
+        }
+
+        section.view3 {
+            flex-direction: row-reverse;
+            justify-content: space-between;
+
+            .top,
+            .bottom {
+                width: 50%;
+            }
+
+            .bottom {
+                justify-content: space-between;
+                padding: 3rem;
+
+                .para {
+                    display: flex;
+                }
+            }
+        }
+
+        section.view4{
+            flex-direction: row;
+
+        }
+    }
+}
